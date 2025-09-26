@@ -62,7 +62,11 @@ I performed a comprehensive cost analysis for both hypervisor solutions, calcula
 - **Alternative - RHEL Subscription:** $799/year (enterprise support option)
 
 #### Guest OS Licensing
-- **Windows Server 2025 Standard:** $1,176 × 9 VMs = $10,584
+- **Windows Server 2025 Standard: ~$1,176 per 16-core license (covers host + 2 VMs).
+
+  - ** To run 9 Windows VMs on 1 dual-socket, 16-core host: need 5× Standard licenses = $5,880.
+
+Ubuntu licenses: $0 (free)
 - **Ubuntu licenses:** $0 (free)
 
 #### KVM Advantages
@@ -71,15 +75,15 @@ I performed a comprehensive cost analysis for both hypervisor solutions, calcula
 - **Lower total cost of ownership:** Especially over multi-year periods
 
 #### Total KVM Costs
-- **With Proxmox VE:** $10,584 (one-time)
-- **With RHEL:** $11,383 (first year), then $799/year ongoing
+- **With Proxmox VE:** $5,880 (one-time)
+- **With RHEL:** $5,880 + $1,598/year = $10,074 (year 1), then $1,598/year ongoing
 
 ### Financial Comparison Summary
 
 | Solution | Initial Cost | Annual Cost | 3-Year Total | 5-Year Total |
 |----------|--------------|-------------|--------------|--------------|
-| **KVM (Proxmox)** | $10,584 | $0 | $10,584 | $10,584 |
-| **KVM (RHEL)** | $11,383 | $799 | $12,981 | $14,579 |
+| **KVM (Proxmox)** | $5,880| $0 | $5,880 | $5,880 |
+| **KVM (RHEL)** | $10,074 | $1,598 | $13,270 | $16,466 |
 | **Hyper-V** | $7,221 | $450 | $8,121 | $9,021 |
 
 ### Cost Analysis Findings
