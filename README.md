@@ -3,9 +3,7 @@
 
 ### Executive Summary
 
-I conducted a comprehensive analysis to determine the optimal hypervisor solution for our industrial OT/engineering environment. This evaluation examined both Microsoft Hyper-V and KVM (Kernel-based Virtual Machine) solutions, considering our specific requirements: 10 virtual machines (9 Windows-based), low-bandwidth edge deployment, and mixed OT/IT workloads.
-
-My analysis evaluated multiple factors including licensing costs, technical capabilities, management complexity, and operational considerations specific to our environment. Both solutions present viable options with distinct advantages and trade-offs that I will detail in this report.
+Analysis evaluated multiple factors including licensing costs, technical capabilities, management complexity, and operational considerations specific to our environment. Both solutions present viable options with distinct advantages and trade-offs that I will detail in this report.
 
 ---
 
