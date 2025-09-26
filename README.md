@@ -148,35 +148,6 @@ Ubuntu licenses: $0 (free)
 **Challenges:**
 - **Linux Foundation:** Underlying Linux knowledge required for advanced troubleshooting
 
-### Decision Trade-offs Summary
-
-#### Choosing Hyper-V Means:
-**Advantages:**
-- Cost savings ($2,463 over 3 years compared to KVM)
-- Immediate team productivity with familiar tools
-- Seamless Windows ecosystem integration
-- Established support and documentation
-- Simplified licensing with Datacenter edition
-
-**Trade-offs:**
-- Ongoing CAL management and compliance
-- Higher bandwidth consumption for updates
-- Vendor lock-in with Microsoft ecosystem
-- Higher host resource overhead
-
-#### Choosing KVM Means:
-**Advantages:**
-- Better resource efficiency and performance
-- Open-source flexibility and control
-- Lower bandwidth requirements
-- No vendor lock-in
-
-**Trade-offs:**
-- Higher licensing costs ($2,463 more over 3 years)
-- Initial learning curve and training investment
-- New management tools and procedures
-- Different support model
-- Additional configuration for optimal Windows VM performance
 
 ---
 
