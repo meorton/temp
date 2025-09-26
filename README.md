@@ -3,7 +3,7 @@
 
 ### Executive Summary
 
-Analysis evaluated multiple factors including licensing costs, technical capabilities, management complexity, and operational considerations specific to our environment. Both solutions present viable options with distinct advantages and trade-offs that I will detail in this report.
+I evaluated multiple factors including licensing costs, technical capabilities, management complexity, and operational considerations specific to our environment. Both solutions present viable options with distinct advantages and trade-offs that I will detail in this report.
 
 ---
 
@@ -97,7 +97,6 @@ My analysis reveals significant cost differences:
 
 ## Technical Comparison and Analysis
 
-I evaluated both hypervisor solutions across multiple technical dimensions, considering our specific industrial OT environment requirements and constraints.
 
 ### Hyper-V Technical Assessment
 
@@ -155,63 +154,11 @@ I evaluated both hypervisor solutions across multiple technical dimensions, cons
 - **Real-time Monitoring:** Built-in performance metrics and alerting
 
 **Challenges:**
-- **New Interface:** Team will need training on Proxmox management
 - **Linux Foundation:** Underlying Linux knowledge required for advanced troubleshooting
 
-### Performance Analysis for Our Workload
 
-#### Windows VM Performance Comparison
-My testing research indicates:
-- **KVM Performance:** Near-native performance with VirtIO drivers (95-98% of bare metal)
-- **Hyper-V Performance:** Excellent Windows VM performance (96-99% of bare metal)
-- **Application Compatibility:** Both platforms fully support our OT applications (FactoryTalk, LabVIEW, Rockwell tools)
-
-#### Resource Utilization
-- **KVM Host Overhead:** ~2-5% of total system resources
-- **Hyper-V Host Overhead:** ~8-12% of total system resources
-- **Memory Efficiency:** KVM provides better memory overcommitment capabilities
-
-### Low Bandwidth Environment Considerations
-
-#### Network Efficiency Analysis
-**Host OS Updates:**
-- **KVM (Linux):** 200-500 MB/month - smaller, more targeted updates
-- **Hyper-V (Windows Server):** 1-2 GB/month - larger cumulative updates
-
-**Remote Management Bandwidth:**
-- **KVM:** SSH (minimal bandwidth) + web GUI (efficient)
-- **Hyper-V:** RDP (higher bandwidth) + WinRM (moderate bandwidth)
-
-**Update Management:**
-- **Both platforms:** Windows VM updates consume same bandwidth (4-5 GB/month)
-- **Advantage KVM:** Host updates consume 60-75% less bandwidth monthly
-
----
-
-## Windows VM Performance on KVM
-
-### Compatibility
-- **Windows Server 2025:** Fully supported with virtio drivers
-- **Windows 10/11:** Excellent performance with proper drivers
-- **Legacy Applications:** FactoryTalk, LabVIEW, Rockwell tools run natively
-
-### Performance Optimizations
-- **VirtIO Drivers:** Near-native disk and network performance
-- **CPU Features:** Pass-through of CPU features to VMs
-- **Memory Management:** Balloon driver for dynamic memory
-- **Graphics:** SPICE or VNC for remote display
-
-### Integration Features
-- **Time Synchronization:** KVM clock for accurate timekeeping
-- **Guest Agents:** QEMU guest agent for enhanced management
-- **Snapshots:** Live snapshots without VM downtime
-- **Migration:** Live migration between KVM hosts
-
----
 
 ## Risk Assessment and Trade-off Analysis
-
-I evaluated the risks and trade-offs associated with each hypervisor solution, considering both technical and operational factors specific to our environment.
 
 ### Hyper-V Risk Assessment
 
@@ -318,11 +265,8 @@ I evaluated the risks and trade-offs associated with each hypervisor solution, c
 
 ---
 
-## Conclusion and Recommendation
 
-After conducting this comprehensive analysis of both Hyper-V and KVM solutions for our industrial OT environment, I have weighed the technical capabilities, financial implications, operational considerations, and risks associated with each platform.
-
-### My Analysis Summary
+### Analysis Summary
 
 Both hypervisor solutions are technically capable of supporting our 10 VM environment with excellent performance. Hyper-V offers the advantage of seamless integration with our Windows-heavy workload and leverages our team's existing skills, while KVM provides superior cost efficiency and resource utilization.
 
