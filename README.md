@@ -17,8 +17,7 @@ My analysis evaluated multiple factors including licensing costs, technical capa
 - **Total RAM:** 82 GB
 - **Operating Systems:**
   - 1× Ubuntu (K3S cluster)
-  - 1× Windows Server (HIST-PI)
-  - 8× Windows Workstation (various OT applications)
+  - 9× Windows Server (various OT applications and services)
 
 ### Detailed VM Breakdown
 
@@ -26,13 +25,13 @@ My analysis evaluated multiple factors including licensing costs, technical capa
 |---------|-------------|------|----------|---------|------------------|
 | VM K3S | K3S Cluster server | - | - | Ubuntu | K3s, nginx |
 | Rig-App-DB | PostgreSQL server | 6 | 6 | Ubuntu | PostgreSQL, Radmin |
-| FactoryTalk-DB | MSSQL server for Rockwell | 6 | 6 | Windows WS | FactoryTalk Services Platform |
-| Jump-Host | Secure Remote Access | 2 | 4 | Windows WS | Radmin, Chrome |
-| Eng-WS | Engineering Tool Workstation | 6 | 10 | Windows WS | Studio 5000, RSLinx |
-| DPO-WS | Drilling Performance Optimization | 8 | 12 | Windows WS | LabVIEW, FactoryTalk |
-| RZR-EWS | Engineering Tool Workstation | 6 | 10 | Windows WS | Beckhoff/Siemens tools |
-| ViewSE-PASS | Process Automation System | 6 | 12 | Windows WS | FactoryTalk Services |
-| OPC-GW | OPC UA/DA Server | 4 | 10 | Windows WS | OPC Gateway software |
+| FactoryTalk-DB | MSSQL server for Rockwell | 6 | 6 | Windows Server | FactoryTalk Services Platform |
+| Jump-Host | Secure Remote Access | 2 | 4 | Windows Server | Radmin, Chrome |
+| Eng-WS | Engineering Tool Workstation | 6 | 10 | Windows Server | Studio 5000, RSLinx |
+| DPO-WS | Drilling Performance Optimization | 8 | 12 | Windows Server | LabVIEW, FactoryTalk |
+| RZR-EWS | Engineering Tool Workstation | 6 | 10 | Windows Server | Beckhoff/Siemens tools |
+| ViewSE-PASS | Process Automation System | 6 | 12 | Windows Server | FactoryTalk Services |
+| OPC-GW | OPC UA/DA Server | 4 | 10 | Windows Server | OPC Gateway software |
 | HIST-PI | Data collection server | 6 | 8 | Windows Server | PI Historian, FactoryTalk |
 
 ---
@@ -48,8 +47,7 @@ I performed a comprehensive cost analysis for both hypervisor solutions, calcula
 - **Windows Server CALs:** $45 × 10 users = $450 (estimated for our team)
 
 #### Guest OS Licensing
-- **Windows Server for HIST-PI:** $0 (covered by Datacenter license)
-- **Windows 10/11 Pro licenses:** $200 × 8 VMs = $1,600
+- **Windows Server VMs:** $0 (all 9 VMs covered by Datacenter license)
 - **Ubuntu licenses:** $0 (free)
 
 #### Hyper-V Advantages
@@ -57,7 +55,7 @@ I performed a comprehensive cost analysis for both hypervisor solutions, calcula
 - **Familiar cost model:** Standard Microsoft licensing approach
 - **Predictable support:** Known Microsoft support structure
 
-#### Total Hyper-V Cost: $8,821 (initial) + $450/year (CALs)
+#### Total Hyper-V Cost: $7,221 (initial) + $450/year (CALs)
 
 ### KVM Solution Analysis
 
@@ -66,8 +64,7 @@ I performed a comprehensive cost analysis for both hypervisor solutions, calcula
 - **Alternative - RHEL Subscription:** $799/year (enterprise support option)
 
 #### Guest OS Licensing
-- **Windows Server 2025 Standard:** $1,176 (for HIST-PI VM)
-- **Windows 10/11 Pro licenses:** $200 × 8 VMs = $1,600
+- **Windows Server 2025 Standard:** $1,176 × 9 VMs = $10,584
 - **Ubuntu licenses:** $0 (free)
 
 #### KVM Advantages
@@ -76,27 +73,27 @@ I performed a comprehensive cost analysis for both hypervisor solutions, calcula
 - **Lower total cost of ownership:** Especially over multi-year periods
 
 #### Total KVM Costs
-- **With Proxmox VE:** $2,776 (one-time)
-- **With RHEL:** $3,575 (first year), then $799/year ongoing
+- **With Proxmox VE:** $10,584 (one-time)
+- **With RHEL:** $11,383 (first year), then $799/year ongoing
 
 ### Financial Comparison Summary
 
 | Solution | Initial Cost | Annual Cost | 3-Year Total | 5-Year Total |
 |----------|--------------|-------------|--------------|--------------|
-| **KVM (Proxmox)** | $2,776 | $0 | $2,776 | $2,776 |
-| **KVM (RHEL)** | $3,575 | $799 | $5,173 | $6,771 |
-| **Hyper-V** | $8,821 | $450 | $9,721 | $10,621 |
+| **KVM (Proxmox)** | $10,584 | $0 | $10,584 | $10,584 |
+| **KVM (RHEL)** | $11,383 | $799 | $12,981 | $14,579 |
+| **Hyper-V** | $7,221 | $450 | $8,121 | $9,021 |
 
 ### Cost Analysis Findings
 My analysis reveals significant cost differences:
-- **KVM with Proxmox:** Lowest total cost with $6,945 savings over 3 years
-- **KVM with RHEL:** Moderate cost with enterprise support, $4,548 savings over 3 years
-- **Hyper-V:** Highest cost but includes comprehensive Microsoft ecosystem integration
+- **Hyper-V:** Lowest total cost with $2,463 savings over 3 years compared to KVM (Proxmox)
+- **KVM with Proxmox:** Higher cost due to individual Windows Server licensing requirements
+- **KVM with RHEL:** Highest cost with enterprise support, $4,860 more than Hyper-V over 3 years
 
 **Cost per VM Analysis:**
-- KVM (Proxmox): $278 per VM
-- KVM (RHEL): $517 per VM (3-year average)
-- Hyper-V: $882 per VM (3-year average)
+- Hyper-V: $812 per VM (3-year average)
+- KVM (Proxmox): $1,058 per VM
+- KVM (RHEL): $1,298 per VM (3-year average)
 
 ---
 
@@ -275,25 +272,27 @@ I evaluated the risks and trade-offs associated with each hypervisor solution, c
 
 #### Choosing Hyper-V Means:
 **Advantages:**
+- Cost savings ($2,463 over 3 years compared to KVM)
 - Immediate team productivity with familiar tools
 - Seamless Windows ecosystem integration
 - Established support and documentation
-- Lower initial learning curve
+- Simplified licensing with Datacenter edition
 
 **Trade-offs:**
-- Significantly higher costs ($6,000+ over 3 years)
-- Ongoing licensing complexity and CAL management
+- Ongoing CAL management and compliance
 - Higher bandwidth consumption for updates
 - Vendor lock-in with Microsoft ecosystem
+- Higher host resource overhead
 
 #### Choosing KVM Means:
 **Advantages:**
-- Substantial cost savings ($4,500-$6,900 over 3 years)
 - Better resource efficiency and performance
 - Open-source flexibility and control
 - Lower bandwidth requirements
+- No vendor lock-in
 
 **Trade-offs:**
+- Higher licensing costs ($2,463 more over 3 years)
 - Initial learning curve and training investment
 - New management tools and procedures
 - Different support model
@@ -331,48 +330,43 @@ Both hypervisor solutions are technically capable of supporting our 10 VM enviro
 
 ### Key Decision Factors
 
-**Financial Impact:** The cost analysis reveals a substantial difference, with KVM offering $4,500-$6,900 in savings over three years. For our budget-conscious industrial environment, this represents significant value.
+**Financial Impact:** The cost analysis reveals a substantial difference, with Hyper-V offering $2,463 savings over three years compared to KVM with Proxmox. For our budget-conscious industrial environment, this represents significant value, especially when combined with the licensing simplicity of the Datacenter edition.
 
-**Technical Performance:** My research indicates both platforms deliver near-native performance for Windows VMs (95-99% of bare metal). KVM's lower host overhead (2-5% vs 8-12%) provides better resource utilization for our edge deployment.
+**Technical Performance:** My research indicates both platforms deliver near-native performance for Windows VMs (95-99% of bare metal). While KVM has lower host overhead (2-5% vs 8-12%), Hyper-V's native Windows integration provides seamless compatibility with our Windows Server workload.
 
-**Operational Considerations:** While Hyper-V offers immediate familiarity, the learning curve for KVM with Proxmox VE is manageable and provides long-term benefits including reduced licensing complexity and better bandwidth efficiency for our low-bandwidth site.
+**Operational Considerations:** Hyper-V offers immediate familiarity and leverages our team's existing Windows administration skills. The learning curve for KVM would require significant training investment and operational changes.
 
-**Risk Assessment:** The primary risk with KVM is the initial learning curve, which can be mitigated through training and phased implementation. The risks with Hyper-V are primarily financial (ongoing CAL costs) and operational (higher bandwidth requirements).
+**Risk Assessment:** The primary risk with Hyper-V is ongoing CAL costs and higher bandwidth requirements. The risks with KVM include substantial upfront Windows Server licensing costs, learning curve challenges, and operational disruption during transition.
 
-### My Recommendation: KVM with Proxmox VE
+### My Recommendation: Hyper-V
 
-Based on my comprehensive analysis, I recommend implementing **KVM with Proxmox VE** for our industrial OT environment. This recommendation is driven by:
+Based on my comprehensive analysis, I recommend implementing **Hyper-V** for our industrial OT environment. This recommendation is driven by:
 
 #### Primary Justifications:
-1. **Substantial Cost Savings:** $6,945 savings over 3 years compared to Hyper-V
-2. **Superior Resource Efficiency:** Better utilization of our hardware resources
-3. **Bandwidth Optimization:** 60-75% reduction in host update bandwidth consumption
-4. **Future-Proof Architecture:** Open-source foundation with no vendor lock-in
+1. **Cost Advantage:** $2,463 savings over 3 years compared to KVM (Proxmox) due to Datacenter licensing benefits
+2. **Team Readiness:** Leverages existing Windows administration skills with no learning curve
+3. **Windows Ecosystem Integration:** Native compatibility with our 9 Windows Server VMs
+4. **Operational Continuity:** Immediate deployment capability without training delays
 
 #### Implementation Strategy:
-1. **Phase 1:** Team training on Proxmox VE and Linux administration (4-6 weeks)
-2. **Phase 2:** Pilot deployment with non-critical VMs (2-3 weeks)
-3. **Phase 3:** Gradual migration of production workloads (4-6 weeks)
-4. **Phase 4:** Full operational transition with documented procedures
+1. **Phase 1:** Hardware procurement and Hyper-V host setup (2-3 weeks)
+2. **Phase 2:** VM migration planning and testing (2-3 weeks)
+3. **Phase 3:** Production VM deployment (3-4 weeks)
+4. **Phase 4:** Monitoring and optimization (ongoing)
 
 #### Risk Mitigation:
-- Invest in comprehensive Proxmox training for the team
-- Consider RHEL subscription ($799/year) for enterprise support if needed
-- Maintain hybrid management approach where beneficial
-- Document all procedures and create operational runbooks
+- Implement WSUS for controlled update distribution to manage bandwidth
+- Plan for CAL growth and licensing compliance
+- Establish backup and disaster recovery procedures
+- Document operational procedures for team consistency
 
 ### Alternative Consideration
 
-If the team's readiness for Linux administration is a significant concern, **Hyper-V remains a viable option** despite the higher costs. The additional $6,900 investment over three years could be justified if:
-- Immediate operational continuity is critical
-- Training budget is severely constrained
-- Risk tolerance for new technologies is very low
-
-However, given the substantial financial benefits and technical advantages of KVM, along with the manageable learning curve, I believe the investment in KVM training and implementation will provide superior long-term value for our organization.
+If bandwidth constraints are a critical concern or if the team wants to gain Linux expertise, **KVM with Proxmox VE could be considered** despite the higher licensing costs. However, the additional $2,463 cost over three years, combined with training requirements and operational complexity, makes this less attractive for our current environment.
 
 ### Final Assessment
 
-The combination of significant cost savings, equal technical performance, better resource efficiency, and improved bandwidth utilization makes KVM with Proxmox VE the optimal choice for our industrial OT environment. The initial investment in training and transition will be quickly offset by the ongoing operational and financial benefits.
+The combination of cost savings, team readiness, seamless Windows integration, and operational simplicity makes Hyper-V the optimal choice for our industrial OT environment. The Datacenter licensing model provides excellent value for our multi-VM Windows Server deployment, while leveraging our existing expertise ensures rapid deployment and reliable operations.
 
 ---
 
