@@ -171,21 +171,9 @@ Ubuntu licenses: $0 (free)
 
 ### Analysis Summary
 
-Both hypervisor solutions are technically capable of supporting our 10 VM environment with excellent performance. Hyper-V offers the advantage of seamless integration with our Windows-heavy workload and leverages our team's existing skills, while KVM provides superior cost efficiency and resource utilization.
+Both hypervisor solutions are technically capable of supporting our 10 VM environment. Hyper-V offers the advantage of seamless integration with our Windows-heavy workload, while KVM provides superior cost efficiency and resource utilization.
 
-### Key Decision Factors
 
-**Financial Impact:** The cost analysis reveals a substantial difference, with Hyper-V offering $2,463 savings over three years compared to KVM with Proxmox. For our budget-conscious industrial environment, this represents significant value, especially when combined with the licensing simplicity of the Datacenter edition.
-
-**Technical Performance:** My research indicates both platforms deliver near-native performance for Windows VMs (95-99% of bare metal). While KVM has lower host overhead (2-5% vs 8-12%), Hyper-V's native Windows integration provides seamless compatibility with our Windows Server workload.
-
-**Operational Considerations:** Hyper-V offers immediate familiarity and leverages our team's existing Windows administration skills. The learning curve for KVM would require significant training investment and operational changes.
-
-**Risk Assessment:** The primary risk with Hyper-V is ongoing CAL costs and higher bandwidth requirements. The risks with KVM include substantial upfront Windows Server licensing costs, learning curve challenges, and operational disruption during transition.
-
-### My Recommendation: Hyper-V
-
-Based on the analysis, I recommend implementing **Hyper-V** for our industrial OT environment. This recommendation is driven by:
 
 
 
