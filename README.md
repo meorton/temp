@@ -5,7 +5,7 @@
 
 **RECOMMENDATION: KVM with Proxmox VE**
 
-Based on detailed cost analysis of your 10 VM environment, KVM provides significant cost savings of **$4,796-$5,595** compared to Hyper-V while delivering equal performance for your Windows-heavy workload.
+Based on detailed cost analysis of our 10 VM environment, KVM provides significant cost savings of **$4,796-$5,595** compared to Hyper-V while delivering equal performance for our Windows-heavy workload.
 
 ---
 
@@ -195,7 +195,7 @@ Based on detailed cost analysis of your 10 VM environment, KVM provides signific
 
 ## Conclusion
 
-**KVM with Proxmox VE is the recommended solution** for your industrial OT environment based on:
+**KVM with Proxmox VE is the recommended solution** for our industrial OT environment based on:
 
 ### Financial Benefits
 - **$4,796-$6,945 cost savings** over 3 years
