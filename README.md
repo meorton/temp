@@ -103,7 +103,6 @@ Ubuntu licenses: $0 (free)
 
 #### Considerations for Our Use Case
 - **Resource Overhead:** Windows Server host requires more CPU and memory resources
-- **Licensing Complexity:** CAL requirements add ongoing costs and compliance tracking
 - **Update Bandwidth:** Larger monthly updates impact our low-bandwidth environment  (mitigated with local windows patching server)
 - **Cost Structure:** Higher initial investment and ongoing licensing fees
 
