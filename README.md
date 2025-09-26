@@ -86,17 +86,6 @@ Ubuntu licenses: $0 (free)
 | **KVM (RHEL)** | $10,074 | $1,598 | $13,270 | $16,466 |
 | **Hyper-V** | $7,221 | $450 | $8,121 | $9,021 |
 
-### Cost Analysis Findings
-My analysis reveals significant cost differences:
-- **Hyper-V:** Lowest total cost with $2,463 savings over 3 years compared to KVM (Proxmox)
-- **KVM with Proxmox:** Higher cost due to individual Windows Server licensing requirements
-- **KVM with RHEL:** Highest cost with enterprise support, $4,860 more than Hyper-V over 3 years
-
-**Cost per VM Analysis:**
-- Hyper-V: $812 per VM (3-year average)
-- KVM (Proxmox): $1,058 per VM
-- KVM (RHEL): $1,298 per VM (3-year average)
-
 ---
 
 ## Technical Comparison and Analysis
