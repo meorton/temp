@@ -115,7 +115,6 @@ Ubuntu licenses: $0 (free)
 - **Performance:** Native Linux kernel integration provides excellent virtualization performance
 - **Flexibility:** Advanced CPU pinning and NUMA awareness for optimizing critical OT workloads
 - **Security:** SELinux provides additional security layers for industrial environments
-- **Cost Efficiency:** No hypervisor licensing reduces total cost of ownership
 - **Open Source:** Full control over the platform with no vendor lock-in
 
 #### Considerations for Our Use Case
