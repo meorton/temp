@@ -118,7 +118,6 @@ Ubuntu licenses: $0 (free)
 - **Open Source:** Full control over the platform with no vendor lock-in
 
 #### Considerations for Our Use Case
-- **Learning Curve:** Team will need Linux administration training
 - **Windows Integration:** Requires additional configuration for optimal Windows VM performance
 - **Support Model:** Different support approach compared to traditional Microsoft support
 - **Management Tools:** Less integrated with existing Windows-based management infrastructure
