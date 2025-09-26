@@ -95,7 +95,6 @@ Ubuntu licenses: $0 (free)
 
 #### Strengths for Our Environment
 - **Native Windows Ecosystem:** Seamless integration with our Windows-heavy workload (9 of 10 VMs)
-- **Familiar Management:** Our team's existing Windows Server administration skills directly apply
 - **Enterprise Integration:** Built-in integration with Active Directory, Group Policy, and existing Windows infrastructure
 - **Azure Connectivity:** Native Azure Arc integration for cloud management and monitoring
 - **PowerShell Automation:** Extensive scripting capabilities for automation and configuration management
@@ -105,7 +104,7 @@ Ubuntu licenses: $0 (free)
 #### Considerations for Our Use Case
 - **Resource Overhead:** Windows Server host requires more CPU and memory resources
 - **Licensing Complexity:** CAL requirements add ongoing costs and compliance tracking
-- **Update Bandwidth:** Larger monthly updates impact our low-bandwidth environment
+- **Update Bandwidth:** Larger monthly updates impact our low-bandwidth environment  (mitigated with local windows patching server)
 - **Cost Structure:** Higher initial investment and ongoing licensing fees
 
 ### KVM Technical Assessment
