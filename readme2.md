@@ -8,7 +8,7 @@ This document provides a comprehensive comparison between Dynatrace and the TICK
 
 | Aspect | Dynatrace | TICK Stack |
 |--------|-----------|------------|
-| **Bandwidth efficiency (low BW sites)** | ✔ Very good: OneAgent → ActiveGate → cloud. ActiveGate aggregates, compresses, and buffers → only one uplink. Excellent for flaky/low-bandwidth WAN. | ⚠️ Depends on config: Telegraf can batch/compress metrics, but each agent usually ships directly to InfluxDB. You'd need to deploy a local InfluxDB per site and then replicate data (extra setup). Without that, bandwidth is higher. |
+| **Bandwidth efficiency (low BW sites)** | Very good out of the box: OneAgent → ActiveGate → cloud. ActiveGate aggregates, compresses, and buffers → only one uplink. Excellent for flaky/low-bandwidth WAN. | Depends on config: Telegraf can batch/compress metrics, but each agent usually ships directly to InfluxDB. You'd need to deploy a local InfluxDB per site and then replicate data (extra setup). Without that, bandwidth is higher. |
 | **Data types covered** | Metrics, logs, traces, real user monitoring, synthetic, security. All integrated. | Mainly time-series metrics. Logs need extra stack (e.g., Loki, ELK). APM/trace support is minimal without bolt-ons. |
 | **Deployment** | SaaS (cloud) or Dynatrace Managed (on-prem with cluster + ActiveGates). Very automated. | Fully self-hosted. You install and operate InfluxDB, Kapacitor, Chronograf, plus dashboards (often Grafana instead of Chronograf). |
 | **Automation & AI** | Davis AI engine = automatic root-cause detection, anomaly detection, topology mapping. | No built-in AI. You build alerts in Kapacitor or use InfluxDB tasks; everything is rule/schedule-based. |
@@ -35,5 +35,4 @@ This document provides a comprehensive comparison between Dynatrace and the TICK
 ### Decision Factors
 - **Budget vs. Operational Complexity**: Dynatrace offers lower ops overhead but higher licensing costs
 - **Bandwidth Constraints**: Dynatrace is better optimized for low-bandwidth environments
-- **Team Expertise**: TICK Stack requires more hands-on management and technical expertise
 - **Observability Scope**: Dynatrace provides broader observability coverage out-of-the-box
