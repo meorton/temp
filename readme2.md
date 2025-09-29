@@ -1,8 +1,17 @@
 # Dynatrace vs TICK Stack Comparison
 
-## Overview
+## Summary 
+It is best to use dynatrace, as we can set up the one agent on each host to collect metrics, and then they all send to an active gate setup locally and that active gate buffers, compresses and streams the data to the Dynatrace cluster (cloud or Managed), reducing significantly the data being sent out throuh the internet.
 
-This document provides a comprehensive comparison between Dynatrace and the TICK Stack (Telegraf, InfluxDB, Chronograf, Kapacitor) for monitoring and observability solutions.
+Reason to use this to use this over the propose TICK Stack is 
+
+- If the WAN link is down or congested, ActiveGate queues data locally and retries later (so we don’t lose data).
+
+- When connectivity is restored, it flushes the backlog automatically.
+
+- By default dynatrace does not have scheduling capability, but if we have a logic that block outbound call from specific time (hybrid approach), then all metrics sits available in active gate and can be access within local sites in real time (dynatrace local managed cluster), but then during off peak hours we can enable the outbount internnet traffic automatically and it will stream this to the cloud cluster as well. 
+
+- Also dyantrace allows custom extension development, that can be used to monitor anything not out of the box to dynatrace + other predifine definition 
 
 ## Comparison Table
 
