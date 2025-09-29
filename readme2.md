@@ -44,3 +44,15 @@ Reason to use this to use this over the propose TICK Stack is
 - **Budget vs. Operational Complexity**: Dynatrace offers lower ops overhead but higher licensing costs
 - **Bandwidth Constraints**: Dynatrace is better optimized for low-bandwidth environments
 - **Observability Scope**: Dynatrace provides broader observability coverage out-of-the-box
+
+
+## Comparison Table
+
+| Aspect | Dynatrace | Azure Monitor | Datadog |
+|--------|-----------|---------------|---------|
+| **Bandwidth efficiency** | **Excellent**: OneAgent → local ActiveGate buffers, compresses, aggregates → single uplink. ActiveGate retries when WAN is down. Very edge-friendly. |  **Moderate**: Agents send directly to Azure endpoints. No native equivalent to ActiveGate. To buffer/aggregate, you'd need Log Analytics Gateways or self-built proxies, but not as bandwidth-efficient. |  **Good**: but less optimized: DogStatsD/Agent can batch metrics, but usually each agent streams directly to Datadog cloud. There is a Datadog Forwarder (Lambda/S3) but not as efficient as ActiveGate for WAN-constrained sites. |
+| **Offline resilience** | **Strong**: ActiveGate queues locally, flushes backlog when link is restored. No data loss. |  **Weak**: Agents fail to send if WAN is down; limited local caching. Data may be dropped if link is offline too long. |  **Limited**: Datadog agent has some buffering, but it's designed for short outages (minutes to maybe an hour). Long WAN outages can drop data. |
+| **Compression & aggregation** | **Built in**, with ActiveGate. Metrics/logs/traces compressed + deduped before uplink. |  **Minimal**: Each agent → Azure Log Analytics/Insights. Heavy uplink usage if logs/metrics are verbose. |  **Some batching**, but no true site-level aggregation. Each host → Datadog cloud. |
+| **Deployment flexibility** | **SaaS or Managed** (on-prem cluster) for true hybrid/air-gapped sites. |  **Cloud-native only** (Azure). Can't run fully local without WAN. |  **SaaS only**. No fully on-prem option. |
+| **Operational overhead** | **Low**: OneAgent auto-detects, ActiveGate auto-manages queueing/compression. |  **Medium**: Requires multiple agents + config, Log Analytics Gateway for some WAN optimization. | **Low**: Agents are simple, SaaS backend handles analytics. But WAN dependency is higher. |
+| **Best for low-bandwidth sites** |  **Best choice**: designed for hybrid/edge with ActiveGate WAN optimization. |  **Not ideal** unless site has consistent WAN. |  **Better than Azure Monitor**, but not as WAN-friendly as Dynatrace. |
