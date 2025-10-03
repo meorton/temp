@@ -19,19 +19,19 @@ Based on your provided locations, here's the breakdown:
 
 ## Provider Comparison Table
 
-| Provider | Best Regions for Your Locations | Pricing Model | Regional Control | Best For |
+| Provider | Best Regions for Our Locations | Pricing Model | Regional Control | Best For |
 |----------|--------------------------------|---------------|------------------|----------|
 | **Azure Container Registry** |  Excellent coverage | Pay-as-you-go |  Full control | Enterprise deployments with geo-replication needs |
 | **GitHub Packages** |  Limited (global CDN only) | Free for public, tiered for private |  No regional selection | Open source projects, small teams |
-| **Nexus Repository** |  You control all locations | Self-hosted + infrastructure costs |  Complete control | Maximum flexibility, air-gapped environments |
+| **Nexus Repository** |  We control all locations | Self-hosted + infrastructure costs |  Complete control | Maximum flexibility, air-gapped environments |
 
 ---
 
 ## Option 1: Azure Container Registry (Recommended)
 
-### Available Regions for Your Locations
+### Available Regions for Our Locations
 
-| Your Locations | Nearest Azure Region | Latency Expectation |
+| Our Locations | Nearest Azure Region | Latency Expectation |
 |----------------|---------------------|---------------------|
 | Kuwait, Saudi Arabia | **UAE Central** (Abu Dhabi)<br>**UAE North** (Dubai)<br>**Qatar Central**<br>**Saudi Arabia East** (Dammam - under construction) | Low (< 50ms) |
 | Argentina, Colombia | **Brazil South** (São Paulo)<br>**Brazil Southeast** | Medium (50-100ms from Argentina)<br>Higher from Colombia |
@@ -94,7 +94,7 @@ For your global deployment with Premium tier:
 | **Data Residency** | Limited to: US, EU, Australia only |
 | **Regional Selection** |  Not available - GitHub controls routing |
 
- **Important Limitation**: You cannot choose to store data in Middle East or South America regions specifically.
+ **Important Limitation**: We cannot choose to store data in Middle East or South America regions specifically.
 
 ### Pricing (USD - Official GitHub Pricing)
 
@@ -137,7 +137,7 @@ For your global deployment with Premium tier:
 
 ### Architecture Options
 
-You can deploy:
+We can deploy:
 1. **Central Nexus** in one region (e.g., US)
 2. **Regional Proxy Caches** in:
    - UAE (for Kuwait/Saudi Arabia)
@@ -151,7 +151,7 @@ You can deploy:
 | **Community (OSS)** | FREE | Basic repository management |
 | **Professional** | Contact Sales | High availability, staging, LDAP, etc. |
 
-**Additional Costs You'll Need**:
+**Additional Costs We'll Need**:
 - Server infrastructure (VMs, Kubernetes, etc.)
 - Storage (local or cloud object storage like S3)
 - Network bandwidth
