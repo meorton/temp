@@ -1,4 +1,4 @@
-## Edge Location Distribution & Provider Coverage Comparison
+## Edge Location Distribution (RIG) & Provider Coverage Comparison
 
 This table shows how each cloud provider option aligns with your rig locations:
 
