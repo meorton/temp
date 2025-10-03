@@ -10,4 +10,3 @@ This table shows how each cloud provider option aligns with your rig locations:
 | **Other**<br>PNG, Breen Yard | **2 sites** |  **Limited**<br>• Australia East (Sydney)<br>• Australia Southeast (Melbourne)<br>**Latency**: 50-150ms from PNG |  **Limited**<br>• Global CDN<br>• Australia data residency available<br>**Latency**: Unknown |  **Full Control**<br>• Deploy proxy in Australia/Asia-Pacific<br>**Latency**: You control |
 | **TOTAL** | **~122 sites** | **Coverage Score: 9/10**<br>Managed service, excellent regional coverage | **Coverage Score: 6/10**<br>No regional control, US-centric | **Coverage Score: 10/10**<br>Complete control, requires management |
 
-**Legend:**
