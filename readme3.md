@@ -131,8 +131,8 @@ For your global deployment with Premium tier:
 
 | Aspect | Details |
 |--------|---------|
-| **Hosting** | Self-hosted (you manage infrastructure) |
-| **Regional Proxies** | Deploy anywhere you want |
+| **Hosting** | Self-hosted (we manage infrastructure) |
+| **Regional Proxies** | Deploy anywhere we want |
 | **Flexibility** | Complete control over all locations |
 
 ### Architecture Options
