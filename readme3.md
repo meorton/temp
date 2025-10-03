@@ -27,7 +27,7 @@ Based on your provided locations, here's the breakdown:
 
 ---
 
-## Option 1: Azure Container Registry (Recommended)
+## Option 1: Azure Container Registry 
 
 ### Available Regions for Our Locations
 
