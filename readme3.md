@@ -4,7 +4,7 @@
 
 ## Edge Location Distribution
 
-Based on your provided locations, here's the breakdown:
+
 
 | Region | Locations | Count |
 |--------|-----------|-------|
