@@ -19,9 +19,11 @@ Azure Arc agents require:
 
 ~7% of a single CPU core
 
-📎 Source (official):
+📎 Arch requirement 
 https://learn.microsoft.com/azure/azure-arc/kubernetes/system-requirements
 
+gitops (flux) document 
+https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/conceptual-gitops-flux2
 
 
 | Platform | Local only (Kubernetes) | With Azure Arc + GitOps (Flux) |
