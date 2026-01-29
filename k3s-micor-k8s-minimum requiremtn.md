@@ -24,8 +24,8 @@ https://learn.microsoft.com/azure/azure-arc/kubernetes/system-requirements
 
 
 
-Minimum platform requirements (cluster only, no workloads)
-Platform	Local only (K8s platform)	With Azure Arc + GitOps (Flux)
-AKS Edge Essentials	4 GB RAM / 2 vCPU	4 GB + 850 MB RAM / 2 vCPU + ~7% CPU
-K3s (Ubuntu/Linux)	1 GB RAM / 1 vCPU	1 GB + 850 MB RAM / 1 vCPU + ~7% CPU
-MicroK8s (Ubuntu/Linux)	~540 MB RAM / 1 vCPU	~540 MB + 850 MB RAM / 1 vCPU + ~7% CPU
+| Platform | Local only (Kubernetes) | With Azure Arc + GitOps (Flux) |
+|--------|--------------------------|--------------------------------|
+| **AKS Edge Essentials** | 4 GB RAM / 2 vCPU | 4 GB RAM + **~850 MB** / 2 vCPU + **~7% CPU** |
+| **K3s (Ubuntu/Linux)** | 1 GB RAM / 1 vCPU | 1 GB RAM + **~850 MB** / 1 vCPU + **~7% CPU** |
+| **MicroK8s (Ubuntu/Linux)** | ~540 MB RAM / 1 vCPU | ~540 MB RAM + **~850 MB** / 1 vCPU + **~7% CPU** |
